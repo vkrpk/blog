@@ -56,7 +56,6 @@
             $errors['content'] = ERROR_CONTENT_TOO_SHORT;
         }
 
-        print_r($errors);
         if(empty(array_filter($errors, fn ($e) => $e !== ''))) {
             $articles = [...$articles, [
                 'title' => $title,
