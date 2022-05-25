@@ -28,8 +28,6 @@
             }
             return $acc;
         }, []);
-
-
     }
 
     
@@ -60,30 +58,32 @@
                 </ul>
 
                 <div class="feed-container">
+                    <!-- Si la categorie n'a pas ete selectionnee -->
                     <?php if(!$selectedCat) : ?>
                         <?php foreach($categories as $cat => $num) : ?>
                             <h2 class="p-10"><?= $cat ?></h2>
                             <div class="articles-container">
                                 <?php foreach($articlesPerCategories[$cat] as $article) : ?>
-                                    <div class="article block">
+                                    <a href="/show-article.php?id=<?= $article['id'] ?>" class="article block">
                                         <div class="overflow">
                                             <div class="img-container" style="background-image: url(<?= $article['image'] ?>);" ></div>
                                         </div>
                                         <h3><?= $article['title'] ?></h3>
-                                    </div>
+                                    </a>
                                 <?php endforeach; ?>
                             </div>
                         <?php endforeach; ?>
+                    <!-- sinon : -->
                     <?php else : ?>
                         <h2><?= $selectedCat ?></h2>
                         <div class="articles-container">
                             <?php foreach($articlesPerCategories[$selectedCat] as $article) : ?>
-                                <div class="article block">
+                                <a href="/show-article.php?id=<?= $article['id'] ?>" class="article block">
                                     <div class="overflow">
                                         <div class="img-container" style="background-image: url(<?= $article['image'] ?>);" ></div>
                                     </div>
                                     <h3><?= $article['title'] ?></h3>
-                                </div>
+                                </a>
                             <?php endforeach; ?>
                         </div>
                     <?php endif; ?>
