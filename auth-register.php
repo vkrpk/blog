@@ -52,7 +52,7 @@
         if(!$password) {
             $errors['password'] = ERROR_REQUIRED;
         } else if(mb_strlen($password) < 6){
-            $errors['password'] = ERROR_TOO_SHORT;
+            $errors['password'] = ERROR_PASSWORD_TOO_SHORT;
         }
 
         if(!$confirm_password) {
