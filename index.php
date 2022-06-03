@@ -1,5 +1,9 @@
 <?php
 
+    require __DIR__.'/database/database.php';
+    require __DIR__.'/database/security.php';
+    $currentUser = isLoggedIn();
+
     /**
      * @var ArticleDAO
      */
