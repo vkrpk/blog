@@ -1,5 +1,14 @@
 <?php
 
+    require_once __DIR__.'/database/database.php';
+    require_once __DIR__.'/database/security.php';
+    $currentUser = isLoggedIn();
+
+    if(!$currentUser) {
+        header('Location: /');
+    }
+
+
     /**
      * @var ArticleDAO
      */
@@ -79,6 +88,7 @@
                     'content' => $content,
                     'image' => $image,
                     'id' => $id,
+                    'author' => $currentUser['id']
                 ]);
             } else {
                 // Vous creez un nouvel article
@@ -87,6 +97,7 @@
                     'category' => $category,
                     'content' => $content,
                     'image' => $image,
+                    'author' => $currentUser['id']
                 ]);
             }
 
