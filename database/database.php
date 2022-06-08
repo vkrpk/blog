@@ -1,8 +1,8 @@
 <?php
 
-$dns = 'mysql:host=localhost:3306;dbname=blog';
-$user = 'root';
-$pwd = '';
+$dns = 'mysql:host=eu-cdbr-west-02.cleardb.net;dbname=heroku_3411905a033b8e9';
+$user = 'b12d599e5af3c0';
+$pwd = 'c83d637a';
 
 try {
     $pdo = new PDO($dns, $user, $pwd, [
