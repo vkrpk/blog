@@ -33,6 +33,9 @@
 
     if($id) {
         $article = $articleDAO->getOne($id);
+        if($article['author'] !== $currentUser['id']){
+            header('Location: /');
+        }
 
         $title = $article['title'];
         $image = $article['image'];
@@ -79,7 +82,7 @@
         }
 
         if(empty(array_filter($errors, fn ($e) => $e !== ''))) {
-            
+
             if($id) {
                 // On met a jour la base de donnees
                 $articleDAO->updateOne([
