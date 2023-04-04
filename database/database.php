@@ -9,7 +9,7 @@ try {
     ]);
 } catch (PDOException $e) {
     echo "l'erreur sql est : " . $dbconfig["HOST"];
-    echo "ERROR: " . $e->getMessage();
+    //echo "ERROR: " . $e->getMessage();
 }
 
 return $pdo;
