@@ -6,7 +6,7 @@
 $dbconfig = parse_ini_file(".env");
 
 try {
-    $pdo = new PDO("mysql:host=" . getenv("HOST") . ";dbname=" . getenv("DBNAME"), getenv("USER"), getenv("PASSWD"), [
+    $pdo = new PDO("mysql:host=" . $_ENV["HOST"] . ";dbname=" . $_ENV["DBNAME"], $_ENV["USER"], $_ENV["PASSWD"], [
         PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
     ]);
