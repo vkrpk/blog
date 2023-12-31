@@ -1,11 +1,12 @@
 # Application Blog
-Application ecrite en PHP qui donne la possiblite aux utilisateurs de publier des articles
-Avec un systeme d'authentification
-## Techno utilisees
+Application écrite en PHP qui donne la possibilité aux utilisateurs de publier des articles
+Avec un système d'authentification
+## Technologies utilisées
 * PHP
+* Docker
 ## Persistence des donnees
 * MySQL
-## Fonctionalites
+## Fonctionnalités
 * Ajouter un article
 * Modifier un article
 * Supprimer un article
