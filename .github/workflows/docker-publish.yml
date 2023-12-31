@@ -9,7 +9,7 @@ env:
   # Use docker.io for Docker Hub if empty
   REGISTRY: ghcr.io
   APP_IMAGE_NAME: ${{ github.actor }}/blog_app:latest
-  DB_IMAGE_NAME: ${{ github.actor }}/blog_database:latest
+  DB_IMAGE_NAME: ${{ github.actor }}/blog_db:latest
 
 jobs:
   publish:
@@ -26,3 +26,9 @@ jobs:
           docker-compose build app
           docker tag blog_app ${{ env.REGISTRY }}/${{ env.APP_IMAGE_NAME }}
           docker push ${{ env.REGISTRY }}/${{ env.APP_IMAGE_NAME }}
+      - name: Build and Publish db (if needed)
+        if: github.ref == 'refs/heads/main'
+        run: |
+          docker-compose build db
+          docker tag blog_db:latest ${{ env.REGISTRY }}/${{ env.DB_IMAGE_NAME }}
+          docker push ${{ env.REGISTRY }}/${{ env.DB_IMAGE_NAME }}
